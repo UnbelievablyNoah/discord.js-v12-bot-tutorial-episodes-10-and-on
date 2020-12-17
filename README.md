@@ -8,5 +8,5 @@ It is because when folders are created in  GitHub, they aren't in numerical orde
 They can be found here: https://github.com/AnonymousSportStacker/discord.js-v12-bot-tutorial
 
 <br>
-<img height="500" src="https://cdn.discordapp.com/attachments/711326145106149456/711326259052806164/Bot_Tutorials_Logo.PNG"
+<img height="500" src="https://cdn.discordapp.com/attachments/764593562800619592/788949634021195776/DISCORD.JS_V12_bot_tutorials.png"
 <br>
