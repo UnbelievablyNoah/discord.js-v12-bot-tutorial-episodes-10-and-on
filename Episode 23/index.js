@@ -13,16 +13,6 @@ client.config = config;
 
 const db = require('quick.db');
 
-const distube = require('distube');
-
-const player = new distube(client);
-
-player.on('playSong', (message, queue, song) => {
-    message.channel.send(`${song.name} has started playing!`)
-})
-
-client.player = player;
-
 client.commands= new Discord.Collection();
 //You can change the prefix if you like. It doesn't have to be ! or ;
 const commandFiles = readdirSync(join(__dirname, "commands")).filter(file => file.endsWith(".js"));
@@ -74,12 +64,7 @@ client.on("message", async message => {
     let prefix = await db.get(`prefix_${message.guild.id}`);
     if(prefix === null) prefix = default_prefix;
 
-    const escapeRegex = str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-
-const prefixRegex = new RegExp(`^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`);
-
-
-    if(prefixRegex.test(message.content)){
+    if(message.content.startsWith(prefix)) {
         const args = message.content.slice(prefix.length).trim().split(/ +/g);
 
         const command = args.shift().toLowerCase();
